@@ -1,17 +1,17 @@
-import difference from '../difference';
+import getDifference from '../difference';
 
-test('difference', () => {
-  const path1 = '../assets/before.json';
-  const path2 = '../assets/after.json';
+test('getDifference', () => {
+  const path1 = 'src/assets/before.json';
+  const path2 = 'src/assets/after.json';
 
   const expected = `{
-      host: hexlet.io
-    + timeout: 20
-    - timeout: 50
-    - proxy: 123.234.53.22
-    + verbose: true
-    - follow: false
-  }`;
+    host: hexlet.io
+  + timeout: 20
+  - timeout: 50
+  - proxy: 123.234.53.22
+  - follow: false
+  + verbose: true
+}`;
 
-  expect(difference(path1, path2)).toEqual(expected);
+  expect(getDifference(path1, path2)).toEqual(expected);
 });
