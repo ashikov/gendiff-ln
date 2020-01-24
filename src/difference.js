@@ -32,7 +32,6 @@ const getDifference = (path1, path2) => {
   };
 
   const result = `{\n${allKeys.reduce(callback, '')}}`;
-  console.log(result);
 
   return result;
 };
