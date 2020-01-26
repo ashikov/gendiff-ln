@@ -2,14 +2,15 @@
 
 import program from 'commander';
 
+import pjson from '../../package.json';
+import genDiff from '../genDiff';
+
 program
-  .version('0.0.1')
-  .description('Compares two configuration files and shows a difference.')
-  .option('-f, --format [type]', 'Output format')
+  .version(pjson.version)
+  .description(pjson.description)
+  .option('-f, --format [type]', 'output format')
   .arguments('<f> <path1> <path2>')
-//  .action((f, path1, path2) => {
-//    const format = f;
-//    const pathToFile1 = path1;
-//    const pathToFole2 = path2;
-//  })
+  .action((f, path1, path2) => {
+    console.log(genDiff(path1, path2));
+  })
   .parse(process.argv);
