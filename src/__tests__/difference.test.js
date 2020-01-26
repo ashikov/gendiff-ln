@@ -1,17 +1,11 @@
+import fs from 'fs';
 import getDifference from '../difference';
 
 test('getDifference', () => {
-  const path1 = 'src/assets/before.json';
-  const path2 = 'src/assets/after.json';
+  const path1 = `${__dirname}/../__fixtures__/caseOneBefore.json`;
+  const path2 = `${__dirname}/../__fixtures__/caseOneAfter.json`;
 
-  const expected = `{
-    host: hexlet.io
-  + timeout: 20
-  - timeout: 50
-  - proxy: 123.234.53.22
-  - follow: false
-  + verbose: true
-}`;
+  const expected = fs.readFileSync(`${__dirname}/../__fixtures__/caseOneExpected`, 'utf-8');
 
   expect(getDifference(path1, path2)).toEqual(expected);
 });
