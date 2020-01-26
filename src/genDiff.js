@@ -1,9 +1,19 @@
 import fs from 'fs';
 import _ from 'lodash';
+import yaml from 'js-yaml';
 
-const genDiff = (path1, path2) => {
-  const file1 = JSON.parse(fs.readFileSync(path1));
-  const file2 = JSON.parse(fs.readFileSync(path2));
+const formatSelector = {
+  json: ((file) => JSON.parse(file)),
+  yaml: ((file) => yaml.safeLoad(file)),
+};
+
+const genDiff = (format, path1, path2) => {
+  const lowerCaseFormat = format.toLowerCase();
+  const rawFile1 = fs.readFileSync(path1);
+  const rawFile2 = fs.readFileSync(path2);
+
+  const file1 = formatSelector[lowerCaseFormat](rawFile1);
+  const file2 = formatSelector[lowerCaseFormat](rawFile2);
 
   const keys1 = Object.keys(file1);
   const keys2 = Object.keys(file2);
