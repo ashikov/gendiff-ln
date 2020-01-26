@@ -11,6 +11,6 @@ program
   .option('-f, --format [type]', 'output format')
   .arguments('<f> <path1> <path2>')
   .action((f, path1, path2) => {
-    console.log(genDiff(path1, path2));
+    console.log(genDiff(f, path1, path2));
   })
   .parse(process.argv);
