@@ -31,7 +31,7 @@ const getDifference = (path1, path2) => {
     return `${diff}  - ${key}: ${value1}\n`;
   };
 
-  const result = `{\n${allKeys.reduce(callback, '')}}`;
+  const result = `{\n${allKeys.sort().reduce(callback, '')}}`;
 
   return result;
 };
