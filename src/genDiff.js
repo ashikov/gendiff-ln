@@ -1,23 +1,13 @@
-import fs from 'fs';
 import _ from 'lodash';
-import yaml from 'js-yaml';
+import parser from './parsers';
 
-const formatSelector = {
-  json: ((file) => JSON.parse(file)),
-  yaml: ((file) => yaml.safeLoad(file)),
-};
-
-const genDiff = (format, path1, path2) => {
-  const lowerCaseFormat = format.toLowerCase();
-  const rawFile1 = fs.readFileSync(path1);
-  const rawFile2 = fs.readFileSync(path2);
-
-  const file1 = formatSelector[lowerCaseFormat](rawFile1);
-  const file2 = formatSelector[lowerCaseFormat](rawFile2);
+const genDiff = (path1, path2) => {
+  const file1 = parser(path1);
+  const file2 = parser(path2);
 
   const keys1 = Object.keys(file1);
   const keys2 = Object.keys(file2);
-  const allKeys = _.union(keys1, keys2).sort();
+  const keys = _.union(keys1, keys2).sort();
 
   const cb = (diff, key) => {
     const existKey1 = _.has(file1, key);
@@ -38,7 +28,7 @@ const genDiff = (format, path1, path2) => {
     return `${diff}  - ${key}: ${value1}\n`;
   };
 
-  const result = `{\n${allKeys.reduce(cb, '')}}`;
+  const result = `{\n${keys.reduce(cb, '')}}`;
 
   return result;
 };
