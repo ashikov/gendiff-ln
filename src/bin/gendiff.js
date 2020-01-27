@@ -3,7 +3,7 @@
 import program from 'commander';
 
 import pjson from '../../package.json';
-import genDiff from '../genDiff';
+import genDiff from '..';
 
 program
   .version(pjson.version)
