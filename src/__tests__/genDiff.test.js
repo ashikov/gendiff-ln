@@ -5,7 +5,7 @@ const prefix = `${__dirname}/../__fixtures__`;
 
 describe.each([
   [`${prefix}/before.json`, `${prefix}/after.json`],
-])('testGenDiff', (file1, file2) => {
+])('genDiffTest', (file1, file2) => {
   const result = fs.readFileSync(`${prefix}/result.txt`, 'utf-8');
 
   test('returns diff\n', () => {
