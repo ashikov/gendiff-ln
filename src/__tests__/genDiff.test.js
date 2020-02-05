@@ -5,10 +5,12 @@ const prefix = `${__dirname}/../__fixtures__`;
 
 describe.each([
   [`${prefix}/before.json`, `${prefix}/after.json`],
-])('genDiffTest', (file1, file2) => {
+  [`${prefix}/before.yml`, `${prefix}/after.yml`],
+  [`${prefix}/before.ini`, `${prefix}/after.ini`],
+])('defaultFormat', (file1, file2) => {
   const result = fs.readFileSync(`${prefix}/result.txt`, 'utf-8');
 
-  test('returns diff\n', () => {
+  test('diff', () => {
     expect(genDiff(file1, file2)).toEqual(result);
   });
 });
