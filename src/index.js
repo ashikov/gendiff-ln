@@ -28,7 +28,7 @@ const getAST = (object1, object2) => {
       }
       if (value1 !== value2) {
         return [...acc,
-          { name: key, status: 'updated', value: { valueBefore: value1, valueAfter: value2 } },
+          { name: key, status: 'updated', value: { before: value1, after: value2 } },
         ];
       }
     }
