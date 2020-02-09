@@ -1,6 +1,5 @@
 import { has, union, isObject } from 'lodash';
-// util for console.log objects
-// import util from 'util';
+
 import render from './formatters';
 import parser from './parsers';
 
@@ -49,7 +48,6 @@ const genDiff = (path1, path2, format = 'default') => {
   const file2 = parser(path2);
 
   const ast = getAST(file1, file2);
-  // console.log(util.inspect(ast, { depth: 5 }));
 
   return render[format](ast);
 };
