@@ -38,5 +38,7 @@ gendiff -f plain ./file1.json ./file2.json
 ## asciicast2gif examples
 
 ![gendiff default output examlpe](https://asciinema.org/a/RbqQ2EKxKdbkFNW5WkaXuupEs)
+
 ![gendiff plain output examlpe](https://asciinema.org/a/QTk4G8OlUpZupuH1aDIeT76FL)
+
 ![gendiff JSON output examlpe](https://asciinema.org/a/EpnC5jFukKUysugzXJDmS05wm)
