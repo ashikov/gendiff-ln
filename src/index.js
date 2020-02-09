@@ -6,9 +6,7 @@ import parser from './parsers';
 const isChildren = (value1, value2) => isObject(value1) && isObject(value2);
 
 const getAST = (object1, object2) => {
-  const keysOfObj1 = Object.keys(object1);
-  const keysOfObj2 = Object.keys(object2);
-  const keys = union(keysOfObj1, keysOfObj2).sort();
+  const keys = union(Object.keys(object1), Object.keys(object2)).sort();
 
   return keys.reduce((acc, key) => {
     const value1 = object1[key];
