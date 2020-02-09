@@ -1,6 +1,6 @@
 {
   "name": "gendiff-ln",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Compares two configuration files and shows a difference.",
   "main": "dist/bin/gendiff.js",
   "bin": {
