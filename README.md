@@ -35,7 +35,7 @@ You can choose one of them.
 gendiff -f plain ./file1.json ./file2.json
 ```
 
-## asciicast2gif examples
+## Asciinema examples
 
 ![gendiff default output examlpe](https://asciinema.org/a/RbqQ2EKxKdbkFNW5WkaXuupEs)
 
