@@ -7,7 +7,7 @@ This package includes CLI app which compares two configuration files and shows a
 
 ## Requirements
 
-![npm](https://www.npmjs.com/get-npm) must be installed in your operating system.
+[npm](https://www.npmjs.com/get-npm) must be installed in your operating system.
 
 ## Installation
 
@@ -37,8 +37,8 @@ gendiff -f plain ./file1.json ./file2.json
 
 ## Asciinema examples
 
-![gendiff default output examlpe](https://asciinema.org/a/RbqQ2EKxKdbkFNW5WkaXuupEs)
+[gendiff default output examlpe](https://asciinema.org/a/RbqQ2EKxKdbkFNW5WkaXuupEs)
 
-![gendiff plain output examlpe](https://asciinema.org/a/QTk4G8OlUpZupuH1aDIeT76FL)
+[gendiff plain output examlpe](https://asciinema.org/a/QTk4G8OlUpZupuH1aDIeT76FL)
 
-![gendiff JSON output examlpe](https://asciinema.org/a/EpnC5jFukKUysugzXJDmS05wm)
+[gendiff JSON output examlpe](https://asciinema.org/a/EpnC5jFukKUysugzXJDmS05wm)
