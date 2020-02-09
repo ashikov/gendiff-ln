@@ -12,6 +12,7 @@ const files = [
 describe.each(files)('diff', (file1, file2) => {
   const resultDefault = fs.readFileSync(`${prefix}/resultDefault.txt`, 'utf-8');
   const resultPlain = fs.readFileSync(`${prefix}/resultPlain.txt`, 'utf-8');
+  const resultJSON = fs.readFileSync(`${prefix}/resultJSON.txt`, 'utf-8');
 
   test('default', () => {
     expect(genDiff(file1, file2)).toEqual(resultDefault);
@@ -19,5 +20,9 @@ describe.each(files)('diff', (file1, file2) => {
 
   test('plain', () => {
     expect(genDiff(file1, file2, 'plain')).toEqual(resultPlain);
+  });
+
+  test('json', () => {
+    expect(genDiff(file1, file2, 'json')).toEqual(resultJSON);
   });
 });
