@@ -1,4 +1,6 @@
 import { has, union, isObject } from 'lodash';
+import path from 'path';
+import fs from 'fs';
 
 import render from './formatters';
 import parser from './parsers';
@@ -41,11 +43,13 @@ const getAST = (object1, object2) => {
   }, []);
 };
 
-const genDiff = (path1, path2, format = 'default') => {
-  const file1 = parser(path1);
-  const file2 = parser(path2);
+const getFileExtension = (pathToFile) => path.extname(pathToFile).substr(1);
 
-  const ast = getAST(file1, file2);
+const genDiff = (path1, path2, format = 'default') => {
+  const data1 = parser(getFileExtension(path1), fs.readFileSync(path1, 'utf-8'));
+  const data2 = parser(getFileExtension(path2), fs.readFileSync(path2, 'utf-8'));
+
+  const ast = getAST(data1, data2);
 
   return render[format](ast);
 };
