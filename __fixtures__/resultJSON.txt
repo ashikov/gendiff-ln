@@ -20,11 +20,9 @@
       {
         "name": "setting3",
         "status": "updated",
-        "value": {
-          "before": true,
-          "after": {
-            "key": "value"
-          }
+        "oldValue": true,
+        "newValue": {
+          "key": "value"
         }
       },
       {
@@ -62,10 +60,8 @@
       {
         "name": "baz",
         "status": "updated",
-        "value": {
-          "before": "bas",
-          "after": "bars"
-        }
+        "oldValue": "bas",
+        "newValue": "bars"
       },
       {
         "name": "foo",
@@ -75,12 +71,10 @@
       {
         "name": "nest",
         "status": "updated",
-        "value": {
-          "before": {
-            "key": "value"
-          },
-          "after": "str"
-        }
+        "oldValue": {
+          "key": "value"
+        },
+        "newValue": "str"
       }
     ]
   },
