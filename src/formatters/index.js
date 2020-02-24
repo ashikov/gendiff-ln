@@ -1,4 +1,4 @@
-import defaultRender from './defaultRender';
+import defaultRender from './elegantRender';
 import plainRender from './plainRender';
 import jsonRender from './jsonRender';
 
