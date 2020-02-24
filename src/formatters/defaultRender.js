@@ -21,8 +21,8 @@ const defaultRender = (ast) => {
       saved: (node, level) => `    ${node.name}: ${stringify(node.value, level + 1)}`,
       added: (node, level) => `  + ${node.name}: ${stringify(node.value, level + 1)}`,
       deleted: (node, level) => `  - ${node.name}: ${stringify(node.value, level + 1)}`,
-      updated: (node, level) => `  - ${node.name}: ${stringify(node.value.before, level + 1)}\n`
-        + `${ident.repeat(level)}  + ${node.name}: ${stringify(node.value.after, level + 1)}`,
+      updated: (node, level) => `  - ${node.name}: ${stringify(node.oldValue, level + 1)}\n`
+        + `${ident.repeat(level)}  + ${node.name}: ${stringify(node.newValue, level + 1)}`,
     };
 
     const result = tree.map((node) => {

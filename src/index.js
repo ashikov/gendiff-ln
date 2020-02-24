@@ -10,36 +10,28 @@ const isChildren = (value1, value2) => isObject(value1) && isObject(value2);
 const getAST = (object1, object2) => {
   const keys = union(Object.keys(object1), Object.keys(object2)).sort();
 
-  return keys.reduce((acc, key) => {
+  return keys.map((key) => {
     const value1 = object1[key];
     const value2 = object2[key];
 
     if (has(object1, key) && has(object2, key)) {
       if (value1 === value2) {
-        return [...acc,
-          { name: key, status: 'saved', value: value1 },
-        ];
+        return { name: key, status: 'saved', value: value1 };
       }
       if (isChildren(value1, value2)) {
-        return [...acc,
-          { name: key, children: getAST(value1, value2) },
-        ];
+        return { name: key, children: getAST(value1, value2) };
       }
       if (value1 !== value2) {
-        return [...acc,
-          { name: key, status: 'updated', value: { before: value1, after: value2 } },
-        ];
+        return {
+          name: key, status: 'updated', oldValue: value1, newValue: value2,
+        };
       }
     }
     if (!has(object1, key) && has(object2, key)) {
-      return [...acc,
-        { name: key, status: 'added', value: value2 },
-      ];
+      return { name: key, status: 'added', value: value2 };
     }
 
-    return [...acc,
-      { name: key, status: 'deleted', value: value1 },
-    ];
+    return { name: key, status: 'deleted', value: value1 };
   }, []);
 };
 

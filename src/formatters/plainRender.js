@@ -17,7 +17,7 @@ const plainRender = (ast) => {
       added: (node, fullPath) => `Property '${getPath(fullPath)}' was added with value ${stringify(node.value)}`,
       deleted: (node, fullPath) => `Property '${getPath(fullPath)}' was deleted`,
       updated: (node, fullPath) => (
-        `Property '${getPath(fullPath)}' was changed from ${stringify(node.value.before)} to ${stringify(node.value.after)}`
+        `Property '${getPath(fullPath)}' was changed from ${stringify(node.oldValue)} to ${stringify(node.newValue)}`
       ),
     };
 
