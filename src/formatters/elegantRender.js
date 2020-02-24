@@ -23,15 +23,10 @@ const defaultRender = (ast) => {
       deleted: (node, level) => `  - ${node.name}: ${stringify(node.value, level + 1)}`,
       updated: (node, level) => `  - ${node.name}: ${stringify(node.oldValue, level + 1)}\n`
         + `${ident.repeat(level)}  + ${node.name}: ${stringify(node.newValue, level + 1)}`,
+      hasChildren: (node, level) => `    ${node.name}: ${iter(node.children, level + 1)}`,
     };
 
-    const result = tree.map((node) => {
-      if (node.children !== undefined) {
-        return `${ident.repeat(offset)}    ${node.name}: ${iter(node.children, offset + 1)}`;
-      }
-
-      return `${ident.repeat(offset)}${getString[node.status](node, offset)}`;
-    });
+    const result = tree.map((node) => `${ident.repeat(offset)}${getString[node.status](node, offset)}`);
 
     return ['{', ...result, `${ident.repeat(offset)}}`].join('\n');
   };

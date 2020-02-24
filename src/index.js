@@ -19,7 +19,7 @@ const getAST = (object1, object2) => {
         return { name: key, status: 'saved', value: value1 };
       }
       if (isChildren(value1, value2)) {
-        return { name: key, status: 'children', children: getAST(value1, value2) };
+        return { name: key, status: 'hasChildren', children: getAST(value1, value2) };
       }
       if (value1 !== value2) {
         return {

@@ -19,14 +19,11 @@ const plainRender = (ast) => {
       updated: (node, fullPath) => (
         `Property '${getPath(fullPath)}' was changed from ${stringify(node.oldValue)} to ${stringify(node.newValue)}`
       ),
+      hasChildren: (node, fullPath) => `${iter(node.children, fullPath)}`,
     };
 
     const result = tree.map((node) => {
       const fullPath = [...pathToProperty, node.name];
-
-      if (node.children !== undefined) {
-        return `${iter(node.children, fullPath)}`;
-      }
 
       return getString[node.status](node, fullPath);
     });
