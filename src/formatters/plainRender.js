@@ -13,7 +13,7 @@ const getPath = (path) => path.join('.');
 const plainRender = (ast) => {
   const iter = (tree, pathToProperty) => {
     const getString = {
-      saved: () => undefined,
+      saved: () => null,
       added: (node, fullPath) => `Property '${getPath(fullPath)}' was added with value ${stringify(node.value)}`,
       deleted: (node, fullPath) => `Property '${getPath(fullPath)}' was deleted`,
       updated: (node, fullPath) => (
@@ -28,7 +28,7 @@ const plainRender = (ast) => {
       return getString[node.status](node, fullPath);
     });
 
-    return result.filter((string) => string !== undefined).join('\n');
+    return result.filter((string) => string !== null).join('\n');
   };
 
   return iter(ast, []);
