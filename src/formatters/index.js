@@ -1,9 +1,9 @@
-import defaultRender from './elegantRender';
+import elegantRender from './elegantRender';
 import plainRender from './plainRender';
 import jsonRender from './jsonRender';
 
 const formatters = {
-  default: defaultRender,
+  default: elegantRender,
   plain: plainRender,
   json: jsonRender,
 };
