@@ -15,7 +15,7 @@ const stringify = (value, offset) => {
   return `{\n${result.join('\n')}\n${ident.repeat(offset)}}`;
 };
 
-const defaultRender = (ast) => {
+const elegantRender = (ast) => {
   const iter = (tree, offset) => {
     const getString = {
       saved: (node, level) => `    ${node.name}: ${stringify(node.value, level + 1)}`,
@@ -34,4 +34,4 @@ const defaultRender = (ast) => {
   return iter(ast, 0);
 };
 
-export default defaultRender;
+export default elegantRender;

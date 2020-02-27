@@ -3,9 +3,9 @@ import path from 'path';
 import fs from 'fs';
 
 import render from './formatters';
-import parser from './parsers';
+import parse from './parsers';
 
-const isChildren = (value1, value2) => isObject(value1) && isObject(value2);
+const hasChildren = (value1, value2) => isObject(value1) && isObject(value2);
 
 const getAST = (object1, object2) => {
   const keys = union(Object.keys(object1), Object.keys(object2)).sort();
@@ -18,7 +18,7 @@ const getAST = (object1, object2) => {
       if (value1 === value2) {
         return { name: key, status: 'saved', value: value1 };
       }
-      if (isChildren(value1, value2)) {
+      if (hasChildren(value1, value2)) {
         return { name: key, status: 'hasChildren', children: getAST(value1, value2) };
       }
       if (value1 !== value2) {
@@ -38,8 +38,8 @@ const getAST = (object1, object2) => {
 const getFileExtension = (pathToFile) => path.extname(pathToFile).substr(1);
 
 const genDiff = (path1, path2, format = 'default') => {
-  const data1 = parser(getFileExtension(path1), fs.readFileSync(path1, 'utf-8'));
-  const data2 = parser(getFileExtension(path2), fs.readFileSync(path2, 'utf-8'));
+  const data1 = parse(getFileExtension(path1), fs.readFileSync(path1, 'utf-8'));
+  const data2 = parse(getFileExtension(path2), fs.readFileSync(path2, 'utf-8'));
 
   const ast = getAST(data1, data2);
 
