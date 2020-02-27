@@ -43,7 +43,7 @@ const genDiff = (path1, path2, format = 'default') => {
 
   const ast = getAST(data1, data2);
 
-  return render[format](ast);
+  return render(format)(ast);
 };
 
 export default genDiff;
