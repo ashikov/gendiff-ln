@@ -1,13 +1,5 @@
-const stringify = (value) => {
-  if (typeof value === 'number') {
-    return String(value);
-  }
-
-  return value;
-};
-
 const jsonRender = (ast) => {
-  const result = JSON.stringify(ast, (key, value) => stringify(value), 2);
+  const result = JSON.stringify(ast, null, 2);
 
   return result;
 };
