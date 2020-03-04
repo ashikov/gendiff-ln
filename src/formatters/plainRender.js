@@ -2,7 +2,7 @@ import { isObject } from 'lodash';
 
 const stringify = (value) => {
   if (isObject(value)) {
-    return '\'[complex value]\'';
+    return "'[complex value]'";
   }
 
   return value === `'${value}'` ? value : `'${value}'`;
