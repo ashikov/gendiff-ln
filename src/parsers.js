@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 import ini from 'ini';
-import { isNaN } from 'lodash';
+import _ from 'lodash';
 
 const isNumeric = (value) => {
   if (typeof value === 'boolean') {
@@ -9,7 +9,7 @@ const isNumeric = (value) => {
 
   const convertedValue = +value;
 
-  if (isNaN(convertedValue)) {
+  if (_.isNaN(convertedValue)) {
     return false;
   }
 
@@ -26,7 +26,7 @@ const iniParser = (data) => {
 
 const parsers = {
   json: JSON.parse,
-  yml: yaml.safeLoad,
+  yml: yaml.load,
   ini: iniParser,
 };
 

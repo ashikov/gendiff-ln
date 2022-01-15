@@ -1,6 +1,6 @@
-import elegantRender from './elegantRender';
-import plainRender from './plainRender';
-import jsonRender from './jsonRender';
+import elegantRender from './elegantRender.js';
+import plainRender from './plainRender.js';
+import jsonRender from './jsonRender.js';
 
 const formatters = {
   default: elegantRender,

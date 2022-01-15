@@ -1,20 +1,20 @@
-import { has, union, isObject } from 'lodash';
+import _ from 'lodash';
 import path from 'path';
 import fs from 'fs';
 
-import render from './formatters';
-import parse from './parsers';
+import render from './formatters/index.js';
+import parse from './parsers.js';
 
-const hasChildren = (value1, value2) => isObject(value1) && isObject(value2);
+const hasChildren = (value1, value2) => _.isObject(value1) && _.isObject(value2);
 
 const getAST = (object1, object2) => {
-  const keys = union(Object.keys(object1), Object.keys(object2)).sort();
+  const keys = _.union(Object.keys(object1), Object.keys(object2)).sort();
 
   return keys.map((key) => {
     const value1 = object1[key];
     const value2 = object2[key];
 
-    if (has(object1, key) && has(object2, key)) {
+    if (_.has(object1, key) && _.has(object2, key)) {
       if (value1 === value2) {
         return { name: key, status: 'saved', value: value1 };
       }
@@ -27,7 +27,7 @@ const getAST = (object1, object2) => {
         };
       }
     }
-    if (!has(object1, key) && has(object2, key)) {
+    if (!_.has(object1, key) && _.has(object2, key)) {
       return { name: key, status: 'added', value: value2 };
     }
 

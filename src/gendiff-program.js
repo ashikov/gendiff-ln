@@ -1,7 +1,7 @@
 import program from 'commander';
 
 import pjson from '../package.json';
-import genDiff from '.';
+import genDiff from './index.js';
 
 program
   .version(pjson.version)

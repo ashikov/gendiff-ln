@@ -1,7 +1,7 @@
 import fs from 'fs';
-import genDiff from '../src';
+import genDiff from '../src/index.js';
 
-const prefix = `${__dirname}/../__fixtures__`;
+const prefix = '__fixtures__';
 const getFullPath = (format, name) => `${prefix}/${name}.${format}`;
 
 describe.each([

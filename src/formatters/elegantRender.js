@@ -1,9 +1,9 @@
-import { isObject } from 'lodash';
+import _ from 'lodash';
 
 const ident = '    ';
 
 const stringify = (value, offset) => {
-  if (!isObject(value)) {
+  if (!_.isObject(value)) {
     return value;
   }
 
