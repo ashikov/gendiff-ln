@@ -1,14 +1,15 @@
 # Gendiff
 
-![Node.js CI](https://github.com/ashikov/frontend-project-lvl2/workflows/Node.js%20CI/badge.svg)
+[![Node.js CI](https://github.com/ashikov/gendiff-ln/actions/workflows/nodejs.yml/badge.svg)](https://github.com/ashikov/gendiff-ln/actions/workflows/nodejs.yml)
 
-This package includes CLI app which compares two configuration files and shows a difference.
+This package includes CLI app which compares two configuration files and shows a difference
 
 ## Requirements
 
-[npm](https://www.npmjs.com/get-npm) must be installed in your operating system.
+* Node.js >= 14
+* npm >= 6
 
-## Installation
+## Installation from npm registry
 
 ```shell
 npm install -g gendiff-ln
